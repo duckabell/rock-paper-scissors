@@ -6,6 +6,8 @@ First, find the random numbers  between 1 and 3.
 Then if number is 1, return 'rock' if number is two return 'scissors' and else return 3.
 In the console log return the results.
  */
+
+
 function randomNumber(min, max)
 {
  min = Math.ceil(min);
@@ -29,10 +31,9 @@ function computerPlay()
 
 }
 
-
-
      
 function playRound(playerSelection, computerSelection) {
+
     if (playerSelection === "rock" && computerSelection === "scissors") {
         return "You Win! Rock beats scissors!";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -49,21 +50,69 @@ function playRound(playerSelection, computerSelection) {
     else {
         return "It's a tie. There are no winners.";
     }
+}
+let playerScore = 0;
+let computerScore = 0;
 
+function playerScoring(playerSelection,computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+       return playerScore = playerScore + 1;
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+       return playerScore;
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return playerScore;
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+       return playerScore = playerScore + 1;
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return playerScore;
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+       return playerScore = playerScore + 1;
+    }
+    else {
+        return playerScore;
+    }
 
 }
 
+function computerScoring(playerSelection,computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+       return computerScore;
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+       return computerScore + 1;
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return computerScore + 1;
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+       return computerScore;
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return computerScore + 1;
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+       return computerScore;
+    }
+    else {
+        return computerScore;
+    }
+
+}
+
+
 let playerPrompt = prompt("What's your move?")
 let playerPlay = playerPrompt.toLowerCase();
+
+
 const playerSelection = playerPlay;
 const computerSelection = computerPlay();
 let selectionMessage = "Player chooses " + playerSelection + " and computer chooses " + computerSelection + ".";
+let scoringMessage = "Player score is " + playerScoring(playerSelection,computerSelection) + " and computer score is " + computerScoring(playerSelection,computerSelection) + ".";
+
 
 
 console.log(selectionMessage);
 console.log(playRound(playerSelection, computerSelection));
+console.log(scoringMessage);
 
 
+
+ 
 
 /* it's good form when you're trying to call a result of a function to call it with a new constant and then use that constant in your function? */
 
@@ -74,7 +123,14 @@ console.log(playRound(playerSelection, computerSelection));
 let playerSelection = playerPrompt.toLowerCase();
 
 console.log(playerSelection);
-console.log(computerMessage); */
+console.log(computerMessage);
+
+Other thoughts: I need to have a playerPlay 1 and computerPlay 1 and then I can call those in as different parameters.
+
+ex:
+
+*/
+
 
 
 
